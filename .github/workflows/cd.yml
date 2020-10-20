@@ -66,6 +66,7 @@ jobs:
               with:
                   tag: next
                   token: ${{ secrets.NPM_TOKEN }}
+                  check-version: false
 
             - name: Deploy @latest version
               if: startsWith(github.ref, 'refs/tags/')
