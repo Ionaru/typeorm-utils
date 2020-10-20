@@ -14,7 +14,8 @@
         "lint:src": "eslint --ext ts --max-warnings 0 --ignore-pattern *.spec.ts src",
         "lint:test": "eslint --ext ts --plugin jest --env jest/globals src/**/*.spec.ts",
         "pretest": "npm run lint",
-        "test": "jest src",
+        "test": "jest -i src",
+        "posttest": "codecov -f coverage/*.json",
         "prepare": "npm run build",
         "preversion": "npm run test"
     },
@@ -40,6 +41,7 @@
         "@types/uuid": "^8.3.0",
         "@typescript-eslint/eslint-plugin": "^4.4.1",
         "@typescript-eslint/eslint-plugin-tslint": "^4.4.1",
+        "codecov": "^3.8.0",
         "eslint": "^7.11.0",
         "eslint-plugin-import": "^2.22.1",
         "eslint-plugin-jest": "^24.1.0",
