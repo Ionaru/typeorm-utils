@@ -35,7 +35,7 @@ jobs:
               run: npm install
 
             - name: Test
-              run: npm test && npm run build
+              run: npm test
               env:
                   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
@@ -52,6 +52,9 @@ jobs:
 
             - name: Checkout
               uses: actions/checkout@v1
+
+            - name: Install packages
+              run: npm install
 
             - name: Update @next version
               if: startsWith(github.ref, 'refs/heads/')
