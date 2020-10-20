@@ -10,7 +10,7 @@ This package contains common TypeORM utilities I use in my projects.
 
 ## Usage
 ```
-npm install @ionaru/typeorm-utils
+npm install @ionaru/typeorm-utils typeorm uuid
 ```
 
 ### `BaseModel`
