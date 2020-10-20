@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@ionaru/typeorm-utils.svg?style=for-the-badge)](https://www.npmjs.com/package/@ionaru/typeorm-utils)
 [![npm version](https://img.shields.io/npm/v/@ionaru/typeorm-utils/next.svg?style=for-the-badge)](https://www.npmjs.com/package/@ionaru/typeorm-utils/v/next)
-[![Build Status](https://img.shields.io/github/workflow/status/Ionaru/typeorm-utils/cd/main.svg?style=for-the-badge)](https://github.com/Ionaru/typeorm-utils/actions)
+[![Build Status](https://img.shields.io/github/workflow/status/Ionaru/typeorm-utils/Test%20&%20Deploy/main?style=for-the-badge)](https://github.com/Ionaru/typeorm-utils/actions)
 [![codecov](https://img.shields.io/codecov/c/github/Ionaru/typeorm-utils/main.svg?style=for-the-badge)](https://codecov.io/gh/Ionaru/typeorm-utils)
 
 ## Description
