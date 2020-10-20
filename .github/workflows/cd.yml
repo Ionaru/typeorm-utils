@@ -20,13 +20,13 @@ jobs:
                 node-version: [10.x, 12.x, 14.x]
 
         steps:
-            - name: Checkout
-              uses: actions/checkout@v1
-
             - name: Set up Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
+
+            - name: Checkout
+              uses: actions/checkout@v1
 
             - name: Audit
               run: npm audit
@@ -49,6 +49,9 @@ jobs:
               uses: actions/setup-node@v1
               with:
                   node-version: '14.x'
+
+            - name: Checkout
+              uses: actions/checkout@v1
 
             - name: Update @next version
               if: startsWith(github.ref, 'refs/heads/')
