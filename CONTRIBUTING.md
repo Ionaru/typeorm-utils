@@ -36,9 +36,9 @@ Please make sure any code you submit is compliant and compatible with this repos
 
 #### Continuing development
 To create more pull requests, please follow the steps below:
-1. Go back to the master branch: `git checkout master`.
+1. Go back to the main branch: `git checkout main`.
 1. Fetch the upstream changes: `git fetch upstream`.
-1. Update the master branch with upstream changes: `git merge upstream/master`.
+1. Update the main branch with upstream changes: `git merge upstream/main`.
 1. Repeat ["Your first pull request"](#your-first-pull-request) from step 5.
 
 Thank you! 💜
