@@ -1,5 +1,10 @@
 # @ionaru/typeorm-utils
 
+[![npm version](https://img.shields.io/npm/v/@ionaru/typeorm-utils.svg?style=for-the-badge)](https://www.npmjs.com/package/@ionaru/typeorm-utils)
+[![npm version](https://img.shields.io/npm/v/@ionaru/typeorm-utils/next.svg?style=for-the-badge)](https://www.npmjs.com/package/@ionaru/typeorm-utils/v/next)
+[![Build Status](https://img.shields.io/github/workflow/status/Ionaru/typeorm-utils/cd/master.svg?style=for-the-badge)](https://github.com/Ionaru/typeorm-utils/actions)
+[![codecov](https://img.shields.io/codecov/c/github/Ionaru/typeorm-utils/master.svg?style=for-the-badge)](https://codecov.io/gh/Ionaru/typeorm-utils)
+
 ## Description
 This package contains common TypeORM utilities I use in my projects.
 
