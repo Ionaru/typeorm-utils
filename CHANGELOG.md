@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Setup for this project
+- Initial code & tests.
+- Setup for this project.
 
 [Unreleased]: https://github.com/Ionaru/typeorm-utils/compare/e405b86...HEAD
