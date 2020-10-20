@@ -11,4 +11,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Setup for this project.
 
 [Unreleased]: https://github.com/Ionaru/typeorm-utils/compare/1.0.0...HEAD
-[1.0.0]: https://github.com/Ionaru/web-server/compare/e405b86...1.0.0
+[1.0.0]: https://github.com/Ionaru/typeorm-utils/compare/e405b86...1.0.0
