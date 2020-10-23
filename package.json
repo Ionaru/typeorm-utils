@@ -1,7 +1,7 @@
 {
     "name": "@ionaru/typeorm-utils",
     "version": "1.0.0",
-    "description": "My package typeorm-utils",
+    "description": "Common TypeORM utilities I use in my projects",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
@@ -30,7 +30,9 @@
         "preset": "ts-jest",
         "testEnvironment": "node"
     },
-    "keywords": [],
+    "keywords": [
+        "typeorm", "utils", "utilities", "mysql", "logging", "uuid", "orm", "typescript"
+    ],
     "author": "Jeroen Akkerman",
     "repository": "github:Ionaru/typeorm-utils",
     "license": "MIT",
