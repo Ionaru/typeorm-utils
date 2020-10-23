@@ -10,7 +10,7 @@ This package contains common TypeORM utilities I use in my projects.
 
 ## Usage
 ```
-npm install @ionaru/typeorm-utils typeorm uuid
+npm install @ionaru/typeorm-utils chalk debug supports-color typeorm uuid
 ```
 
 ### `BaseModel`
@@ -80,3 +80,33 @@ const connectionOptions = buildMySQLConnectionOptions({ // Example
     models: ['user.model'],
 })
 ```
+
+### `QueryLogger`
+This class logs queries using the `debug` package. Useful for development.
+It will log queries to `typeorm-utils:QueryLogger` by default.
+
+Errors will always be logged to stderr.
+
+```ts
+import { QueryLogger } from '@ionaru/typeorm-utils'; 
+
+const connectionOptions = await getConnectionOptions();
+
+// Inject the QueryLogger into TypeORM.
+Object.assign(connectionOptions, {
+    logger: new QueryLogger(),
+    logging: ['query', 'error'],
+});
+
+const connection = await createConnection(connectionOptions);
+```
+
+The QueryLogger class optionally takes a `Debugger` instance in its constructor.
+
+```ts
+import Debug from 'debug';
+
+new QueryLogger(Debug('my-app'));
+```
+
+The above code will log queries to `my-app:QueryLogger`.
