@@ -14,34 +14,58 @@ describe('tests for QueryLogger', () => {
 
     beforeEach(() => {
         jest.spyOn(process.stderr, 'write');
+        jest.spyOn(process.stdout, 'write');
     });
 
     afterEach(() => {
         jest.clearAllMocks();
         jest.resetModules();
+        Debug.disable();
     });
 
-    it('must create without arguments', () => {
+    it('must create and log to typeorm-utils:QueryLogger without arguments', () => {
 
-        expect.assertions(1);
+        expect.assertions(2);
+
+        const logger = new QueryLogger();
+        Debug.enable('typeorm-utils:QueryLogger');
+
+        expect(
+            () => logger.logQuery(testQuery, [testParameter])
+        ).not.toThrow();
+        expect(process.stderr.write).toHaveBeenCalledWith(
+            // eslint-disable-next-line max-len
+            '  [38;5;196;1mtypeorm-utils:QueryLogger [0m[94mSELECT[39m * [94mFROM[39m `some_table` [94mWHERE[39m `name` = ?; [37m(Bassie)[39m [38;5;196m+0ms[0m\n'
+        );
+    });
+
+    it('must not log when debug logger is disabled', () => {
+
+        expect.assertions(2);
 
         const logger = new QueryLogger();
 
         expect(
             () => logger.logQuery(testQuery, [testParameter])
         ).not.toThrow();
+        expect(process.stderr.write).toHaveBeenCalledTimes(0);
     });
 
-    it('must create with a debug argument', () => {
+    it('must create and log to a custom debug parameter', () => {
 
-        expect.assertions(1);
+        expect.assertions(2);
 
-        const debug = Debug('test');
+        const debug = Debug('test-debug-logger');
+        Debug.enable('test-debug-logger:QueryLogger');
         const logger = new QueryLogger(debug);
 
         expect(
             () => logger.logQuery(testQuery, [testParameter])
         ).not.toThrow();
+        expect(process.stderr.write).toHaveBeenCalledWith(
+            // eslint-disable-next-line max-len
+            '  [38;5;199;1mtest-debug-logger:QueryLogger [0m[94mSELECT[39m * [94mFROM[39m `some_table` [94mWHERE[39m `name` = ?; [37m(Bassie)[39m [38;5;199m+0ms[0m\n'
+        );
     });
 
     it ('must log query errors', () => {
@@ -93,25 +117,29 @@ describe('tests for QueryLogger', () => {
 
     it('must do nothing with the other logging functions', () => {
 
-        expect.assertions(4);
+        expect.assertions(8);
 
         const logger = new QueryLogger();
 
         expect(
             () => logger.logSchemaBuild('Schema')
         ).not.toThrow();
+        expect(process.stderr.write).toHaveBeenCalledTimes(0);
 
         expect(
             () => logger.logMigration('Migration')
         ).not.toThrow();
+        expect(process.stderr.write).toHaveBeenCalledTimes(0);
 
         expect(
             () => logger.logQuerySlow(50, 'Query')
         ).not.toThrow();
+        expect(process.stderr.write).toHaveBeenCalledTimes(0);
 
         expect(
             () => logger.log('log', 'Query')
         ).not.toThrow();
+        expect(process.stderr.write).toHaveBeenCalledTimes(0);
 
     });
 });
