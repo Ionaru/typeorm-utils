@@ -33,10 +33,7 @@ describe('tests for QueryLogger', () => {
         expect(
             () => logger.logQuery(testQuery, [testParameter])
         ).not.toThrow();
-        expect(process.stderr.write).toHaveBeenCalledWith(
-            // eslint-disable-next-line max-len
-            '  [38;5;196;1mtypeorm-utils:QueryLogger [0m[94mSELECT[39m * [94mFROM[39m `some_table` [94mWHERE[39m `name` = ?; [37m(Bassie)[39m [38;5;196m+0ms[0m\n'
-        );
+        expect(process.stderr.write).toHaveBeenCalledTimes(1);
     });
 
     it('must not log when debug logger is disabled', () => {
@@ -62,10 +59,7 @@ describe('tests for QueryLogger', () => {
         expect(
             () => logger.logQuery(testQuery, [testParameter])
         ).not.toThrow();
-        expect(process.stderr.write).toHaveBeenCalledWith(
-            // eslint-disable-next-line max-len
-            '  [38;5;199;1mtest-debug-logger:QueryLogger [0m[94mSELECT[39m * [94mFROM[39m `some_table` [94mWHERE[39m `name` = ?; [37m(Bassie)[39m [38;5;199m+0ms[0m\n'
-        );
+        expect(process.stderr.write).toHaveBeenCalledTimes(1);
     });
 
     it ('must log query errors', () => {
