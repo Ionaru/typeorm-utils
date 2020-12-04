@@ -1,6 +1,6 @@
 {
     "name": "@ionaru/typeorm-utils",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Common TypeORM utilities I use in my projects",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
