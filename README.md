@@ -82,10 +82,7 @@ const connectionOptions = buildMySQLConnectionOptions({ // Example
 ```
 
 ### `QueryLogger`
-This class logs queries using the `debug` package. Useful for development.
-It will log queries to `typeorm-utils:QueryLogger` by default.
-
-Errors will always be logged to stderr.
+QueryLogger is an implementation of the TypeORM Logger interface.
 
 ```ts
 import { QueryLogger } from '@ionaru/typeorm-utils'; 
@@ -101,7 +98,8 @@ Object.assign(connectionOptions, {
 const connection = await createConnection(connectionOptions);
 ```
 
-The QueryLogger class optionally takes a `Debugger` instance in its constructor.
+The class can also log queries using the `debug` package. Useful for development.
+QueryLogger optionally takes a `Debugger` instance in its constructor, this will enable query logging.
 
 ```ts
 import Debug from 'debug';
@@ -109,4 +107,4 @@ import Debug from 'debug';
 new QueryLogger(Debug('my-app'));
 ```
 
-The above code will log queries to `my-app:QueryLogger`.
+The above code will log queries to `my-app:typeorm-utils:QueryLogger`.
