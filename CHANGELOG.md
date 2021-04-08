@@ -4,7 +4,8 @@ All notable changes to the typeorm-utils project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+[comment]: <> (## [Unreleased])
+## [2.0.0] - 2021-04-08
 ### BREAKING CHANGES
 - Removed QueryLogger debug logging when no debugger instance is given in the constructor.
 
@@ -28,7 +29,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial code & tests.
 - Setup for this project.
 
-[Unreleased]: https://github.com/Ionaru/typeorm-utils/compare/1.2.1...HEAD
+[Unreleased]: https://github.com/Ionaru/typeorm-utils/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/Ionaru/typeorm-utils/compare/1.2.1...2.0.0
 [1.2.1]: https://github.com/Ionaru/typeorm-utils/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/Ionaru/typeorm-utils/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/Ionaru/typeorm-utils/compare/1.0.0...1.1.0
