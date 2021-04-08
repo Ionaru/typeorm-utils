@@ -107,4 +107,4 @@ import Debug from 'debug';
 new QueryLogger(Debug('my-app'));
 ```
 
-The above code will log queries to `my-app:typeorm-utils:QueryLogger`.
+The above code will log queries to `my-app:QueryLogger`.

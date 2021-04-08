@@ -7,7 +7,7 @@ export class QueryLogger implements Logger {
     private readonly debug?: Debugger;
 
     public constructor(debug?: Debugger) {
-        this.debug = debug ? debug.extend('typeorm-utils').extend(this.constructor.name) : debug;
+        this.debug = debug ? debug.extend(this.constructor.name) : debug;
     }
 
     private static colorizeQuery(query: string): string {

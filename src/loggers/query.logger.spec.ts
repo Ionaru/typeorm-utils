@@ -23,12 +23,12 @@ describe('tests for QueryLogger', () => {
         Debug.disable();
     });
 
-    it('must create and log to typeorm-utils:QueryLogger without arguments', () => {
+    it('must create and log to QueryLogger without arguments', () => {
 
         expect.assertions(2);
 
         const debug = Debug('test-debug-logger');
-        Debug.enable('test-debug-logger:typeorm-utils:QueryLogger');
+        Debug.enable('test-debug-logger:QueryLogger');
         const logger = new QueryLogger(debug);
 
         expect(
