@@ -1,13 +1,13 @@
-import * as chalk from 'chalk';
-import Debug, { Debugger } from 'debug';
+import { blueBright, white } from 'chalk';
+import { Debugger } from 'debug';
 import { Logger, QueryRunner } from 'typeorm';
 
 export class QueryLogger implements Logger {
 
-    private readonly queryDebug: Debugger;
+    private readonly debug?: Debugger;
 
     public constructor(debug?: Debugger) {
-        this.queryDebug = (debug ? debug : Debug('typeorm-utils')).extend('QueryLogger');
+        this.debug = debug ? debug.extend('typeorm-utils').extend(this.constructor.name) : debug;
     }
 
     private static colorizeQuery(query: string): string {
@@ -15,7 +15,7 @@ export class QueryLogger implements Logger {
         const uppercaseRegex = new RegExp('^([A-Z]){2,}$');
         for (const queryWord of queryWords) {
             if (uppercaseRegex.test(queryWord)) {
-                queryWords[queryWords.indexOf(queryWord)] = chalk.blueBright(queryWord);
+                queryWords[queryWords.indexOf(queryWord)] = blueBright(queryWord);
             }
         }
         return queryWords.join(' ');
@@ -26,14 +26,14 @@ export class QueryLogger implements Logger {
 
         if (parameters.length) {
             const parametersText = `(${parameters})`;
-            output += `; ${chalk.white(parametersText)}`;
+            output += `; ${white(parametersText)}`;
         }
 
         return output;
     }
 
     public logQuery(query: string, parameters?: any[], _queryRunner?: QueryRunner): void {
-        this.queryDebug(QueryLogger.getQueryText(query, parameters));
+        this.debugLog(QueryLogger.getQueryText(query, parameters));
     }
 
     public logQueryError(error: string, query: string, parameters?: any[], _queryRunner?: QueryRunner): void {
@@ -55,5 +55,11 @@ export class QueryLogger implements Logger {
 
     public log(_level: 'log' | 'info' | 'warn', _message: string, _queryRunner?: QueryRunner): void {
         return;
+    }
+
+    private debugLog(message: string) {
+        if (this.debug) {
+            this.debug(message);
+        }
     }
 }

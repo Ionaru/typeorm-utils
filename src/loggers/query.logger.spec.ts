@@ -27,8 +27,9 @@ describe('tests for QueryLogger', () => {
 
         expect.assertions(2);
 
-        const logger = new QueryLogger();
-        Debug.enable('typeorm-utils:QueryLogger');
+        const debug = Debug('test-debug-logger');
+        Debug.enable('test-debug-logger:typeorm-utils:QueryLogger');
+        const logger = new QueryLogger(debug);
 
         expect(
             () => logger.logQuery(testQuery, [testParameter])
@@ -40,7 +41,8 @@ describe('tests for QueryLogger', () => {
 
         expect.assertions(2);
 
-        const logger = new QueryLogger();
+        const debug = Debug('test-debug-logger');
+        const logger = new QueryLogger(debug);
 
         expect(
             () => logger.logQuery(testQuery, [testParameter])
@@ -48,18 +50,16 @@ describe('tests for QueryLogger', () => {
         expect(process.stderr.write).toHaveBeenCalledTimes(0);
     });
 
-    it('must create and log to a custom debug parameter', () => {
+    it('must not log when no debug logger is passed', () => {
 
         expect.assertions(2);
 
-        const debug = Debug('test-debug-logger');
-        Debug.enable('test-debug-logger:QueryLogger');
-        const logger = new QueryLogger(debug);
+        const logger = new QueryLogger();
 
         expect(
             () => logger.logQuery(testQuery, [testParameter])
         ).not.toThrow();
-        expect(process.stderr.write).toHaveBeenCalledTimes(1);
+        expect(process.stderr.write).toHaveBeenCalledTimes(0);
     });
 
     it ('must log query errors', () => {
