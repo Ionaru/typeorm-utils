@@ -8,6 +8,8 @@ import {
 } from 'typeorm';
 import * as uuid from 'uuid';
 
+export type BaseModelProperties = Pick<BaseModel, 'id' | 'createdOn' | 'updatedOn' | 'deletedOn'>;
+
 export abstract class BaseModel extends BaseEntity {
 
     public static readonly alias: string;
