@@ -23,7 +23,7 @@ export abstract class BaseModel extends BaseEntity {
     @UpdateDateColumn()
     public readonly updatedOn!: Date;
 
-    @DeleteDateColumn({select: false, name: 'deletedOn'})
+    @DeleteDateColumn({name: 'deletedOn', select: false})
     public readonly deletedOn?: Date;
 
     // noinspection TypeScriptAbstractClassConstructorCanBeMadeProtected

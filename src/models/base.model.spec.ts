@@ -31,7 +31,7 @@ describe('tests for BaseModel', () => {
 
         const entity = new MyModel();
 
-        expect(typeof entity).toStrictEqual('object');
+        expect(typeof entity).toBe('object');
         expect(entity.id).toBeTruthy();
         expect(entity.createdOn).toBeFalsy();
         expect(entity.updatedOn).toBeFalsy();
@@ -45,7 +45,7 @@ describe('tests for BaseModel', () => {
         const entity = new MyModel();
         await entity.save();
 
-        expect(typeof entity).toStrictEqual('object');
+        expect(typeof entity).toBe('object');
         expect(entity.id).toBeTruthy();
         expect(entity.createdOn).toBeTruthy();
         expect(entity.updatedOn).toBeTruthy();

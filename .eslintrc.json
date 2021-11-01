@@ -10,5 +10,8 @@
     "extends": [
         "@ionaru",
         "plugin:jest/all"
-    ]
+    ],
+    "rules": {
+        "import/extensions": "off"
+    }
 }

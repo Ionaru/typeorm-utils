@@ -4,7 +4,10 @@ All notable changes to the typeorm-utils project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-[comment]: <> (## [Unreleased])
+## [Unreleased]
+### BREAKING CHANGES
+- Dropped support for Node.js 10.
+
 ## [2.0.0] - 2021-04-08
 ### BREAKING CHANGES
 - Removed QueryLogger debug logging when no debugger instance is given in the constructor.

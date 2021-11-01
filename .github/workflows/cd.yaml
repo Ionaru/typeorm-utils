@@ -1,0 +1,20 @@
+name: Test & Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    tags:
+      - "*"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run:
+    uses: Ionaru/Ionaru/.github/workflows/npm-main.yaml@main
+    with:
+      node-versions: '["12", "14", "16"]'
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
